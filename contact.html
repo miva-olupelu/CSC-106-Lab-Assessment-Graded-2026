@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with Bamigboye Oluwapelumi. Launch the interactive email composer to collaborate, request code details, or ask questions.">
+    <meta name="keywords" content="Contact Bamigboye Oluwapelumi, Message Composer, Collab MIVA, Developer contact email">
+    <meta name="author" content="Bamigboye Oluwapelumi">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/mhistersax">
+    <meta property="og:title" content="Contact Me — Bamigboye Oluwapelumi">
+    <meta property="og:description" content="Launch the interactive message composer to connect directly with Bamigboye Oluwapelumi.">
+    <meta property="og:image" content="asset/Avatar.webp">
+
+    <title>Contact — Student Portfolio</title>
+    <!-- Corrected file path relative to project root -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="asset/images.ico">
+</head>
+<body>
+    <header id="main_header">
+        <div class="brand">
+            <span class="logo-text">MIVA<strong>Portfolio</strong></span>
+        </div>
+        <button class="nav_toggle" id="nav_toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger_bar"></span>
+            <span class="hamburger_bar"></span>
+            <span class="hamburger_bar"></span>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <!-- Highlighted active class for styling -->
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact-container">
+            <h2>Contact Me</h2>
+            <p class="section-intro">Have a question or want to collaborate on a project? Fill out the form below to compose an email directly to <strong style="color: var(--primary);">bamigboyepelumi38@gmail.com</strong>, or check out my work on <a href="https://github.com/mhistersax" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: underline; font-weight: 600;">GitHub</a>.</p>
+            
+            <!-- Universal submission alert element for your JavaScript engine -->
+            <div id="formStatus" class="status-message"></div>
+
+            <form id="contactForm" novalidate>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" required placeholder="Enter your full name">
+                    <!-- Targeted container for specific error text injection -->
+                    <span id="nameError" class="error-text"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input id="email" name="email" type="email" required placeholder="example@email.com">
+                    <span id="emailError" class="error-text"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <!-- Removed HTML pattern restriction to allow your JavaScript logic to handle custom evaluation -->
+                    <input id="phone" name="phone" type="tel" required placeholder="e.g., 08012345678">
+                    <span id="phoneError" class="error-text"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required placeholder="Write your message here..."></textarea>
+                    <span id="messageError" class="error-text"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Launch Message Composer</button>
+            </form>
+
+            <!-- Modal for previewing composed email -->
+            <div id="previewModal" class="modal-overlay" style="display: none;">
+                <div class="modal-card">
+                    <div class="modal-header">
+                        <h3>Review Composed Message</h3>
+                        <button type="button" id="closePreview" class="modal-close-btn" aria-label="Close modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p class="modal-intro">Here is how your draft will be formatted. You can edit the form directly if you need to make changes, or click <strong>"Open Email Client"</strong> to send.</p>
+                        <div class="preview-box">
+                            <p><strong>To:</strong> bamigboyepelumi38@gmail.com</p>
+                            <p><strong>Subject:</strong> <span id="previewSubject"></span></p>
+                            <hr class="preview-divider">
+                            <pre id="previewBody" class="preview-text-area"></pre>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="cancelSend" class="btn btn-outline">Back to Edit</button>
+                        <button type="button" id="confirmSend" class="btn btn-primary">Open Email Client</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Double Confirmation Warning Modal -->
+            <div id="confirmDiscardModal" class="modal-overlay" style="display: none; z-index: 1100;">
+                <div class="modal-card" style="max-width: 420px;">
+                    <div class="modal-header" style="background-color: var(--error);">
+                        <h3>Discard Message Draft?</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p class="modal-intro" style="margin-bottom: 0;">Are you sure you want to discard your draft? Your form input values will remain intact in the background for editing.</p>
+                    </div>
+                    <div class="modal-footer" style="background-color: var(--surface);">
+                        <button type="button" id="abortDiscard" class="btn btn-outline">No, Keep Draft</button>
+                        <button type="button" id="approveDiscard" class="btn btn-primary" style="background-color: var(--error); box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);">Yes, Discard</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MIVA Open University. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Corrected file path relative to project root -->
+    <script src="js/nav.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+</html>

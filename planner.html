@@ -3,15 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Academic planner dashboard to manage coursework, tasks, assignment deadlines, and exam schedules dynamically. Developed by Bamigboye Oluwapelumi.">
+    <meta name="keywords" content="Academic Planner, Assignment Tracker, Study Planner, MIVA student portal, Computer Science tasks">
+    <meta name="author" content="Bamigboye Oluwapelumi">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/mhistersax">
+    <meta property="og:title" content="Academic Task Planner — Bamigboye Oluwapelumi">
+    <meta property="og:description" content="Keep track of courses, schedules, and active tasks dynamically in the MIVA academic dashboard.">
+    <meta property="og:image" content="asset/Avatar.webp">
+
     <title>Academic Planner — Student Management Platform</title>
     <!-- Corrected file path relative to project root -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="asset/images.ico">
 </head>
 <body>
-    <header>
+    <header id="main_header">
         <div class="brand">
             <span class="logo-text">MIVA<strong>Portfolio</strong></span>
         </div>
+        <button class="nav_toggle" id="nav_toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger_bar"></span>
+            <span class="hamburger_bar"></span>
+            <span class="hamburger_bar"></span>
+        </button>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -88,6 +105,7 @@
     </footer>
 
     <!-- Corrected file path relative to project root -->
+    <script src="js/nav.js"></script>
     <script src="js/planner.js"></script>
 </body>
 </html>
