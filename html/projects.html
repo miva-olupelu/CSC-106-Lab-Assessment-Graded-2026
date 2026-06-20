@@ -3,9 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projects Showcase — Student Portfolio</title>
+    <!-- Corrected file path relative to project root -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header>
+        <div class="brand">
+            <span class="logo-text">MIVA<strong>Portfolio</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <!-- Highlighted active class for styling -->
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="gallery-container">
+            <h2>Project Showcase</h2>
+            <p class="section-intro">A selection of web development projects demonstrating semantic structure, responsive layouts, and interactive functionalities.</p>
+            
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="assets/images/project1.png" alt="Screenshot of E-commerce UI design workspace[cite: 1]">
+                    </div>
+                    <div class="project-info">
+                        <h3>Responsive E-Commerce Interface</h3>
+                        <p>A fully responsive multi-page storefront layout designed with semantic HTML5 elements and an optimized CSS Grid product catalogue layout[cite: 1].</p>
+                        <div class="project-links">
+                            <a href="https://github.com/username/ecommerce-ui" target="_blank" rel="noopener noreferrer" class="link-repo">GitHub Code[cite: 1]</a>
+                            <a href="#" class="link-live">Live Demo[cite: 1]</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 2 -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="assets/images/project2.png" alt="Screenshot of terminal-based Task App preview[cite: 1]">
+                    </div>
+                    <div class="project-info">
+                        <h3>Interactive Web Task Utility</h3>
+                        <p>A web-based helper tool utilizing array processing systems and data events to let clients manage and organize operational checklists on-the-fly[cite: 1].</p>
+                        <div class="project-links">
+                            <a href="https://github.com/username/task-utility" target="_blank" rel="noopener noreferrer" class="link-repo">GitHub Code[cite: 1]</a>
+                            <a href="#" class="link-live">Live Demo[cite: 1]</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 3 -->
+                <article class="project-card">
+                    <div class="project-image-wrapper">
+                        <img src="assets/images/project3.png" alt="Screenshot of academic profile home view[cite: 1]">
+                    </div>
+                    <div class="project-info">
+                        <h3>Academic Resource Portal</h3>
+                        <p>A structured platform platform displaying education timelines, career roadmaps, and embedded documentation reference tables for student coursework[cite: 1].</p>
+                        <div class="project-links">
+                            <a href="https://github.com/username/academic-portal" target="_blank" rel="noopener noreferrer" class="link-repo">GitHub Code[cite: 1]</a>
+                            <a href="#" class="link-live">Live Demo[cite: 1]</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MIVA Open University. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>

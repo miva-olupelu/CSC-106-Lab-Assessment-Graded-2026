@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner — Student Management Platform</title>
+    <!-- Corrected file path relative to project root -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <span class="logo-text">MIVA<strong>Portfolio</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <!-- Highlighted active class for styling -->
+                <li><a href="planner.html" class="active">Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="planner-container">
+            <h2>Academic Task Planner</h2>
+            <p class="section-intro">Manage your coursework deadlines, exam dates, and daily study activities dynamically[cite: 1].</p>
+
+            <!-- Task Management Application Block -->
+            <div class="planner-app-box">
+                <!-- Wrapped inside a form for better accessibility and 'Enter' key submissions -->
+                <form id="todoForm" onsubmit="return false;">
+                    <div class="task-input-group">
+                        <label for="taskInput" class="sr-only">New Academic Task</label>
+                        <input id="taskInput" type="text" placeholder="e.g., Study for COS 106 Quiz..." required>
+                        <button type="submit" id="addTaskButton" class="btn btn-primary">Add Task</button>
+                    </div>
+                </form>
+
+                <!-- Task Output Board -->
+                <div class="tasks-dashboard">
+                    <h3>Active Tasks Tracker</h3>
+                    <!-- Empty list targeted for dynamic JavaScript task injection[cite: 1] -->
+                    <ul id="taskList" aria-live="polite"></ul>
+                    <!-- Fallback message when task array is completely empty -->
+                    <p id="emptyStateMessage" class="empty-state">No pending tasks. Add a task above to get started!</p>
+                </div>
+            </div>
+
+            <!-- Reference Table to satisfy semantic HTML requirement and add professional depth[cite: 1] -->
+            <div class="academic-reference">
+                <h3>Semester Academic Priorities</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Course Code</th>
+                            <th>Course Title</th>
+                            <th>Priority Focus Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>COS 106</td>
+                            <td>Introduction to Web Technologies</td>
+                            <td>Term Project & Core Portfolios[cite: 1]</td>
+                        </tr>
+                        <tr>
+                            <td>MTH 102</td>
+                            <td>Mathematical Foundations</td>
+                            <td>Weekly Problem Sets & Algebra Reviews</td>
+                        </tr>
+                        <tr>
+                            <td>GST 111</td>
+                            <td>Communication in English</td>
+                            <td>Research Paper & Continuous Assessment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MIVA Open University. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Corrected file path relative to project root -->
+    <script src="js/planner.js"></script>
+</body>
+</html>

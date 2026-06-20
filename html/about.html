@@ -3,9 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Me — Student Portfolio</title>
+    <!-- Corrected file path relative to project root -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
+    <header>
+        <div class="brand">
+            <span class="logo-text">MIVA<strong>Portfolio</strong></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <!-- Highlighted active class for styles later -->
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html">Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Educational Background Section -->
+        <section id="education">
+            <h2>Educational Background</h2>
+            <ol>
+                <li>
+                    <strong>B.Sc. Computer Science</strong> — MIVA Open University (2023–Present)
+                    <p>Focusing on software development foundations, data systems, and web technologies.</p>
+                </li>
+                <li>
+                    <strong>High School Diploma</strong> — [Your School Name] (2019–2022)
+                    <p>Graduated with honors, focusing on science, technology, and mathematics.</p>
+                </li>
+            </ol>
+        </section>
+
+        <!-- Career Timeline & Aspirations Section -->
+        <section id="career">
+            <h2>Career Goals & Experience</h2>
+            <p class="section-intro">My long-term career aspiration is to become a Full-Stack Software Engineer, specializing in creating accessible, secure, and intuitive web platforms that optimize user productivity.</p>
+            
+            <h3>Professional Experience Timeline</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Role / Position</th>
+                        <th>Key Accomplishments & Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2024</td>
+                        <td>Frontend Web Intern</td>
+                        <td>Gained hands-on experience with semantic layout structures and team version control methodologies.</td>
+                    </tr>
+                    <tr>
+                        <td>2025</td>
+                        <td>UI Research Assistant</td>
+                        <td>Developed platform interface wireframes and organized simple interactive usability test studies.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills Inventory</h2>
+            <ul class="skills-list">
+                <li><strong>HTML5:</strong> Semantic architecture layout, form building, and web accessible tables.</li>
+                <li><strong>CSS3:</strong> Custom layout structures using Flexbox/CSS Grid, typography styling, and media query scaling.</li>
+                <li><strong>JavaScript:</strong> Dynamic DOM script injection, field validation systems, and data array tracking.</li>
+            </ul>
+        </section>
+
+        <!-- Hobbies & Multimedia Section -->
+        <section id="interests">
+            <h2>Personal Hobbies & Interests</h2>
+            <p>Beyond technology and academics, I enjoy exploring video editing, digital photography, and creative design systems. Below is a video project overview highlighting some of my creative design work:</p>
+            
+            <div class="video-container">
+                <!-- Corrected path to the assets directory -->
+                <video controls width="100%" style="max-width: 640px;">
+                    <source src="assets/videos/sample.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MIVA Open University. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
