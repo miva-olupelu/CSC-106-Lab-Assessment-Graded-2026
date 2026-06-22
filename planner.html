@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Academic planner dashboard to manage coursework, tasks, assignment deadlines, and exam schedules dynamically. Developed by Bamigboye Oluwapelumi.">
-    <meta name="keywords" content="Academic Planner, Assignment Tracker, Study Planner, MIVA student portal, Computer Science tasks">
+    <meta name="keywords" content="Academic Planner, Assignment Tracker, Study Planner, MIVA student portal, Software Engineering tasks">
     <meta name="author" content="Bamigboye Oluwapelumi">
     
     <!-- Open Graph / Facebook -->
@@ -70,8 +70,9 @@
                 <div class="tasks-dashboard">
                     <div class="dashboard-header-bar">
                         <h3>Active Tasks Tracker</h3>
-                        <div class="task-stats">
-                            Completed: <span id="completedCount">0</span> / <span id="totalCount">0</span>
+                        <div class="task-stats" style="display: flex; align-items: center; gap: 12px;">
+                            <span>Completed: <span id="completedCount">0</span> / <span id="totalCount">0</span></span>
+                            <button id="clearCompletedBtn" class="btn-clear-tasks" aria-label="Clear completed tasks" style="display: none;">Clear Completed</button>
                         </div>
                     </div>
                     <!-- Empty list targeted for dynamic JavaScript task injection -->

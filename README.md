@@ -1,123 +1,48 @@
+# MIVA Academic Portfolio & Planner
 
-# Responsive Student Portfolio & Academic Management Website
+![Academic Task Planner Showcase](asset/Avatar.webp)
 
-## Project Overview
-This project is a fully functional, multi-page web platform designed as a personal academic portfolio and student management system. Built using semantic HTML5, responsive CSS3, and vanilla JavaScript, this site serves a dual purpose: showcasing professional academic achievements and providing interactive tools to manage daily student activities.
+A modern, responsive, and dynamic web application designed as an academic portfolio and task management dashboard. Built for **Bamigboye Oluwapelumi**, studying **Software Engineering at MIVA Open University**.
 
-This project was developed for the **COS 106 - Introduction to Web Technologies** term project at MIVA Open University.
-
----
-
-## Live Demo & Repository
-*   **GitHub Repository:** [Insert your GitHub repo link here]
-*   **Live Hosted Website:** [Insert your live deployment link here, e.g., GitHub Pages/Netlify]
+### 🌍 Live Links
+- **Live Demo:** [https://miva-olupelu.github.io/CSC-106-Lab-Assessment-Graded-2026/index.html](https://miva-olupelu.github.io/CSC-106-Lab-Assessment-Graded-2026/index.html)
+- **GitHub Repository:** [https://github.com/miva-olupelu/CSC-106-Lab-Assessment-Graded-2026.git](https://github.com/miva-olupelu/CSC-106-Lab-Assessment-Graded-2026.git)
 
 ---
 
-## Key Features & Page Breakdown
+## 🎯 Project Overview
 
-1.  **Homepage (`index.html`)**
-    *   Professional layout introducing the student with a name, photograph, and a welcoming introduction.
-    *   Global, unified navigation menu across all pages.
-    *   Brief introductory biography.
+This project was developed as a comprehensive coursework submission for **CSC 106 (Introduction to Web Technologies)**. It serves two primary purposes:
+1. **Academic Portfolio:** To showcase development projects, skills, and academic priorities.
+2. **Task Dashboard:** A functional, dynamic JavaScript-powered "Academic Planner" to manage assignments, exams, and study schedules.
 
-2.  **About Me Page (`about.html`)**
-    *   Detailed educational background and long-term career aspirations.
-    *   A structured breakdown of core technical skills.
-    *   Personal hobbies and outside interests.
+## ✨ Key Features
 
-3.  **Projects Page (`projects.html`)**
-    *   Showcases a minimum of three distinct sample projects.
-    *   Includes explicit descriptions, visual screenshots, and active/simulated project links.
+- **Dynamic Task Manager:** Add, complete, and delete coursework tasks. Task state is persistently stored in the browser's `localStorage`.
+- **Responsive Design:** Fully mobile-optimized with a custom hamburger menu navigation and grid-based fluid layouts.
+- **Form Validation:** Client-side validation for the contact page with a custom "app-like" modal preview window.
+- **Glassmorphism UI:** Premium, modern interface design utilizing CSS backdrop filters, custom tokens, and smooth micro-animations.
+- **SEO & Accessibility:** Fully populated Open Graph metadata, semantic HTML5 structure, and comprehensive `aria` labels.
 
-4.  **Academic Planner Page (`planner.html`)**
-    *   An interactive, JavaScript-driven task management application.
-    *   Features dynamic tracking enabling users to dynamically **Add**, **Mark as Completed**, and **Delete** tasks.
+## 🛠 Technologies Used
 
-5.  **Contact Page (`contact.html`)**
-    *   A student communication form collecting Name, Email, Phone Number, and Message.
-    *   Robust vanilla JavaScript validation ensuring no empty inputs, proper email formatting, and digits-only validation for phone numbers.
+- **HTML5:** Semantic structure and accessibility.
+- **CSS3:** Custom variables (design tokens), Flexbox, CSS Grid, animations, and responsive media queries.
+- **JavaScript (Vanilla):** DOM manipulation, state management (`localStorage`), event listeners, and dynamic UI rendering (e.g., ResizeObserver for modals).
 
----
+## 🚀 Local Setup
 
-## Technical Stack & Requirements Met
-
-### HTML Requirements
-*   **Semantic Structure:** Built using proper structure layouts (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`).
-*   **Data Layouts:** Implemented forms for contact queries, data tables, structural lists, hyperlinks, and embedded images.
-*   **Multimedia Integration:** Embedded native video/audio media items within the platform.
-
-### CSS Requirements
-*   **Architecture:** Structured entirely using a single unified external stylesheet (`style.css`).
-*   **Layout Engine:** Leveraged Flexbox/CSS Grid to produce an fully responsive layout.
-*   **UI/UX Details:** Configured custom responsive navigation bars, cohesive typography, standardized color themes, and smooth interactive hover animations/transitions.
-
-### JavaScript Requirements
-*   **DOM Manipulation & Event Handling:** Programmed form submission interception and interactive elements.
-*   **Data Logic:** Arrays and operational functions power the dynamic client-side task tracker app ecosystem.
-
----
-
-## Project Structure
-```text
-student-portfolio-platform/
-│
-├── index.html          (Homepage)
-├── about.html          (About Me Page)
-├── projects.html       (Projects Page)
-├── planner.html        (Academic Planner Page)
-├── contact.html        (Contact Page)
-│
-├── css/
-│   └── style.css       (Global External Stylesheet)
-│
-├── js/
-│   ├── planner.js      (Academic Planner Logic)
-│   └── validation.js   (Contact Form Validation)
-│
-└── assets/
-    ├── images/         (Profile & Project Media)
-    └── videos/         (Multimedia Components)
-
-```
-
----
-
-## Getting Started Locally
-
-To run this project on your local machine:
+No build steps or package managers are required. To run this project locally:
 
 1. Clone the repository:
-
-```bash
-   git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-
-```
-
-2. Navigate into the project folder:
-
-```bash
-   cd student-portfolio-platform
-
-```
-
-3. Launch `index.html` directly inside any modern web browser or run it using an extension like **Live Server** in VS Code.
+   ```bash
+   git clone https://github.com/miva-olupelu/CSC-106-Lab-Assessment-Graded-2026.git
+   ```
+2. Open the directory:
+   ```bash
+   cd CSC-106-Lab-Assessment-Graded-2026
+   ```
+3. Open `index.html` in any modern web browser.
 
 ---
-
-## Author
-
-* **Student Name:** [Your Name]
-* **Course:** COS 106 - Introduction to Web Technologies
-* **Institution:** MIVA Open University
-
-```
-
-### Next Step:
-Save this file, stage it, and commit it with a clear message:
-```bash
-git add README.md
-git commit -m "Docs: Add comprehensive README documentation"
-git push origin main
-
-```
+*Designed & Built by Bamigboye Oluwapelumi © 2026 MIVA Open University.*

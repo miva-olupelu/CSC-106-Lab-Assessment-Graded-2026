@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Stats elements
     const completed_count_span = document.getElementById('completedCount');
     const total_count_span = document.getElementById('totalCount');
+    const clear_completed_btn = document.getElementById('clearCompletedBtn');
 
     if (!todo_form || !task_input || !task_category || !task_list) return;
 
@@ -37,7 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Failed to load tasks from local storage:', e);
     }
 
-    // Save tasks helper
+    /**
+     * Persists the current state of the tasks_array to the browser's localStorage.
+     * @function save_tasks_to_storage
+     * @returns {void}
+     */
     const save_tasks_to_storage = () => {
         try {
             localStorage.setItem('miva_planner_tasks', JSON.stringify(tasks_array));
@@ -46,7 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Update empty state and counts
+    /**
+     * Calculates the total and completed task counts, updates the DOM stats counters, 
+     * and toggles the visibility of the empty state message and clear completed button.
+     * @function update_stats_and_empty_state
+     * @returns {void}
+     */
     const update_stats_and_empty_state = () => {
         const total = tasks_array.length;
         const completed = tasks_array.filter(t => t.completed).length;
@@ -59,9 +69,19 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             if (empty_state) empty_state.style.display = 'none';
         }
+
+        // Show "Clear Completed" button only if there are completed tasks
+        if (clear_completed_btn) {
+            clear_completed_btn.style.display = completed > 0 ? 'inline-block' : 'none';
+        }
     };
 
-    // Render tasks from arrays list
+    /**
+     * Re-renders the entire task list into the DOM based on the current state of tasks_array.
+     * Cleans the list, constructs new list items with badges, expandable toggles, and action buttons.
+     * @function render_tasks
+     * @returns {void}
+     */
     const render_tasks = () => {
         task_list.innerHTML = '';
         
@@ -158,7 +178,12 @@ document.addEventListener('DOMContentLoaded', () => {
         update_stats_and_empty_state();
     };
 
-    // Category emoji helper
+    /**
+     * Retrieves the corresponding emoji icon for a specific academic category.
+     * @function get_category_emoji
+     * @param {string} category - The task category (e.g., 'Assignment', 'Exam').
+     * @returns {string} The matching emoji character.
+     */
     const get_category_emoji = (category) => {
         switch (category) {
             case 'Assignment': return '📝';
@@ -169,7 +194,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Add new task
+    /**
+     * Validates input, creates a new task object, pushes it to the state array, and saves to storage.
+     * @function add_new_task
+     * @param {string} task_text - The description of the task.
+     * @param {string} category_val - The selected category.
+     * @returns {void}
+     */
     const add_new_task = (task_text, category_val) => {
         const cleaned_text = task_text.trim();
         if (cleaned_text.length === 0) return;
@@ -209,6 +240,15 @@ document.addEventListener('DOMContentLoaded', () => {
         task_input.value = '';
         task_input.focus();
     });
+
+    // Clear Completed listener
+    if (clear_completed_btn) {
+        clear_completed_btn.addEventListener('click', () => {
+            tasks_array = tasks_array.filter(t => !t.completed);
+            save_tasks_to_storage();
+            render_tasks();
+        });
+    }
 
     // Show Task Detail Modal (Dynamic Pop-out)
     const show_task_modal = (full_text, category) => {
