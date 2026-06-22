@@ -37,6 +37,9 @@
     --space-md: 24px;
     --space-lg: 48px;
     --space-xl: 64px;
+
+    /* Navbar height offset — used to push content below the fixed header */
+    --nav-height: 68px;
 }
 
 /* =============================================
@@ -61,6 +64,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-size: 16px;
+    padding-top: var(--nav-height); /* Push content below fixed header */
 }
 
 /* Typography Hierarchy */
@@ -126,8 +130,10 @@ section {
 header {
     background-color: var(--primary);
     padding: var(--space-sm) var(--space-md);
-    position: sticky;
+    position: fixed;      /* Fixed is immune to flex-parent sticky bugs */
     top: 0;
+    left: 0;
+    width: 100%;          /* Must span full viewport width when fixed */
     z-index: 100;
     box-shadow: 0 2px 12px rgba(9, 49, 79, 0.2);
     display: flex;
@@ -1465,13 +1471,8 @@ footer {
 
 /* Mobile Navigation & Responsive Header */
 @media (max-width: 768px) {
+    /* Mobile header — inherits fixed positioning from global rule, just re-assert padding */
     header {
-        position: sticky;
-        top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         padding: var(--space-sm) var(--space-md);
     }
 
