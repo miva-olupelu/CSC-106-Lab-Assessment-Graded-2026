@@ -44,7 +44,7 @@
     <main>
         <section id="planner-container">
             <h2>Academic Task Planner</h2>
-            <p class="section-intro">Manage your coursework deadlines, exam dates, and daily study activities dynamically[cite: 1].</p>
+            <p class="section-intro">Track your assignments, exam deadlines, and daily study activities in one unified dashboard.</p>
 
             <!-- Task Management Application Block -->
             <div class="planner-app-box">
@@ -53,14 +53,28 @@
                     <div class="task-input-group">
                         <label for="taskInput" class="sr-only">New Academic Task</label>
                         <input id="taskInput" type="text" placeholder="e.g., Study for COS 106 Quiz..." required>
+                        
+                        <label for="taskCategory" class="sr-only">Category</label>
+                        <select id="taskCategory" required>
+                            <option value="Assignment">📝 Assignment</option>
+                            <option value="Exam">🎓 Exam / Test</option>
+                            <option value="Study">📚 Study Activity</option>
+                            <option value="Project">💻 Project Task</option>
+                        </select>
+                        
                         <button type="submit" id="addTaskButton" class="btn btn-primary">Add Task</button>
                     </div>
                 </form>
 
                 <!-- Task Output Board -->
                 <div class="tasks-dashboard">
-                    <h3>Active Tasks Tracker</h3>
-                    <!-- Empty list targeted for dynamic JavaScript task injection[cite: 1] -->
+                    <div class="dashboard-header-bar">
+                        <h3>Active Tasks Tracker</h3>
+                        <div class="task-stats">
+                            Completed: <span id="completedCount">0</span> / <span id="totalCount">0</span>
+                        </div>
+                    </div>
+                    <!-- Empty list targeted for dynamic JavaScript task injection -->
                     <ul id="taskList" aria-live="polite"></ul>
                     <!-- Fallback message when task array is completely empty -->
                     <p id="emptyStateMessage" class="empty-state">No pending tasks. Add a task above to get started!</p>
@@ -101,7 +115,36 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 MIVA Open University. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="logo-text">MIVA<strong>Portfolio</strong></span>
+                <p>Designed and built as part of the COS 106 Coursework at MIVA Open University.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="planner.html">Planner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="https://github.com/mhistersax" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                        GitHub
+                    </a>
+                    <a href="mailto:bamigboyepelumi38@gmail.com" aria-label="Send Email">
+                        Email
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MIVA Open University. All Rights Reserved. Built by Bamigboye Oluwapelumi.</p>
+        </div>
     </footer>
 
     <!-- Corrected file path relative to project root -->
