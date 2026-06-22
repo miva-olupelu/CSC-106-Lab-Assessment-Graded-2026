@@ -1,6 +1,15 @@
 /**
  * Academic Planner Application Handler
  * Using snake_case convention as per project standards.
+ *
+ * Long task name strategy: "Expandable Card" (Option B)
+ * ─────────────────────────────────────────────────────
+ * - Tasks with names longer than EXPAND_THRESHOLD characters
+ *   are clamped to 2 lines by default (CSS -webkit-line-clamp).
+ * - A small "▼ Show more" / "▲ Show less" toggle sits beneath the
+ *   text and expands the card inline without any layout jump.
+ * - The expanded state is stored per-task so toggling survives
+ *   a re-render cycle within the same session.
  */
 document.addEventListener('DOMContentLoaded', () => {
     const todo_form = document.getElementById('todoForm');
@@ -62,25 +71,58 @@ document.addEventListener('DOMContentLoaded', () => {
                 list_item.classList.add('completed');
             }
 
-            // Task content container (with styled category tag badge)
+            // ── Task Content Container ──────────────────────────────────
             const text_wrapper = document.createElement('div');
-            text_wrapper.style.display = 'flex';
-            text_wrapper.style.alignItems = 'center';
-            text_wrapper.style.gap = '10px';
-            text_wrapper.style.flexWrap = 'wrap';
+            text_wrapper.className = 'task-content-wrapper';
 
-            // Category badge element
+            // Category badge (top-left pill)
             const category_name = task_item.category || 'Study';
             const category_badge = document.createElement('span');
             category_badge.className = `task-badge badge-${category_name.toLowerCase()}`;
             category_badge.textContent = get_category_emoji(category_name) + ' ' + category_name;
             text_wrapper.appendChild(category_badge);
 
+            // ── Expandable Task Text Block ──────────────────────────────
+            // Wraps the task name + optional toggle button together so the
+            // toggle always sits flush below the text, not beside it.
+            const text_block = document.createElement('div');
+            text_block.className = 'task-text-block';
+
             const text_span = document.createElement('span');
             text_span.className = 'task-text';
             text_span.textContent = task_item.text;
-            text_wrapper.appendChild(text_span);
 
+            // Apply the 2-line clamp to all text spans
+            text_span.classList.add('task-text--clamped');
+            text_block.appendChild(text_span);
+
+            // Create the "Show more" button (hidden by default)
+            const toggle_btn = document.createElement('button');
+            toggle_btn.type = 'button';
+            toggle_btn.className = 'task-expand-toggle';
+            toggle_btn.style.display = 'none'; // Hidden until overflow is confirmed
+            toggle_btn.innerHTML = '&#9660; Show more';
+
+            // Click triggers the modal instead of expanding inline
+            toggle_btn.addEventListener('click', () => {
+                show_task_modal(task_item.text, category_name);
+            });
+            text_block.appendChild(toggle_btn);
+
+            // Use ResizeObserver to detect actual visual truncation.
+            // If the text's natural scrollHeight is greater than the 2-line
+            // clientHeight, it means it's overflowing, so we show the button!
+            const observer = new ResizeObserver(() => {
+                // A small buffer (e.g., 2px) handles browser rounding differences
+                if (text_span.scrollHeight > text_span.clientHeight + 2) {
+                    toggle_btn.style.display = 'inline-block';
+                } else {
+                    toggle_btn.style.display = 'none';
+                }
+            });
+            observer.observe(text_span);
+
+            text_wrapper.appendChild(text_block);
             list_item.appendChild(text_wrapper);
 
             // Action buttons wrapper
@@ -167,6 +209,76 @@ document.addEventListener('DOMContentLoaded', () => {
         task_input.value = '';
         task_input.focus();
     });
+
+    // Show Task Detail Modal (Dynamic Pop-out)
+    const show_task_modal = (full_text, category) => {
+        // Create modal overlay using existing CSS classes from style.css
+        const overlay = document.createElement('div');
+        overlay.className = 'modal-overlay';
+        
+        const card = document.createElement('div');
+        card.className = 'modal-card';
+        card.style.maxWidth = '450px'; // Keep it tight for simple task details
+        
+        // Header
+        const header = document.createElement('div');
+        header.className = 'modal-header';
+        
+        const title = document.createElement('h3');
+        title.textContent = 'Task Details';
+        
+        const close_btn = document.createElement('button');
+        close_btn.innerHTML = '&times;';
+        close_btn.setAttribute('aria-label', 'Close modal');
+        // Inline styles to ensure the button looks like a clean 'X' in the header
+        close_btn.style.background = 'none';
+        close_btn.style.border = 'none';
+        close_btn.style.color = 'var(--surface)';
+        close_btn.style.fontSize = '1.75rem';
+        close_btn.style.cursor = 'pointer';
+        close_btn.onclick = () => document.body.removeChild(overlay);
+        
+        header.appendChild(title);
+        header.appendChild(close_btn);
+        
+        // Body container
+        const body = document.createElement('div');
+        body.style.padding = 'var(--space-md) var(--space-lg)';
+        body.style.display = 'flex';
+        body.style.flexDirection = 'column';
+        body.style.alignItems = 'flex-start';
+        body.style.gap = '16px';
+        
+        // Replicate category badge
+        const badge = document.createElement('span');
+        badge.className = `task-badge badge-${category.toLowerCase()}`;
+        badge.textContent = get_category_emoji(category) + ' ' + category;
+        
+        // Full text paragraph
+        const text_para = document.createElement('p');
+        text_para.textContent = full_text;
+        text_para.style.wordBreak = 'break-word';
+        text_para.style.lineHeight = '1.6';
+        text_para.style.margin = '0';
+        text_para.style.color = 'var(--text-body)';
+        
+        body.appendChild(badge);
+        body.appendChild(text_para);
+        
+        card.appendChild(header);
+        card.appendChild(body);
+        overlay.appendChild(card);
+        
+        // Close modal when clicking outside the card
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                document.body.removeChild(overlay);
+            }
+        });
+        
+        // Append and trigger entry animation
+        document.body.appendChild(overlay);
+    };
 
     // Initial render call
     render_tasks();
